@@ -1,87 +1,40 @@
-import { useContext, useEffect, useState } from "react";
-import { GameContext } from "../contexts/GameContext";
-import data from "../data/questions";
+import { useGame } from "../Hooks/useGame";
 
 const Home = () => {
-  const { category, total, changeScore, changeMode, changeTotal } =
-    useContext(GameContext);
-  const [show, setShow] = useState("hidden");
-  const [current, setCurrent] = useState(0);
-  const [questions, setQuestions] = useState([]);
-
-  useEffect(() => {
-    const [list] = data.filter(i => i.category === category);
-    setQuestions(list.questions);
-    changeTotal(list.questions.length);
-  }, []);
-
-  const handleQuestion = ({ target }) => {
-    if (show === "hidden") {
-      const element = document.getElementById(target.id);
-
-      setShow("");
-
-      if (target.textContent === questions[current].answer) {
-        element.classList.add("success");
-        changeScore(1);
-      } else {
-        element.classList.add("incorrect");
-        changeScore(0);
-      }
-    }
-  };
-
-  const handleNext = () => {
-    if (document.querySelector(".success")) {
-      document.querySelector(".success").classList.remove("success");
-    }
-
-    if (document.querySelector(".incorrect")) {
-      document.querySelector(".incorrect").classList.remove("incorrect");
-    }
-
-    setCurrent(current + 1);
-    setShow("hidden");
-  };
+  const game = useGame();
 
   return (
-    <div className="app">
-      <div className="box-title">
-        <h1>Quiz de Programação</h1>
-      </div>
+    <div className="question">
+      <div className="box-questions">
+        <span>
+          Pergunta {game.current + 1} de {game.questions.length}
+        </span>
 
-      {questions.length > 0 && (
-        <div className="box-questions">
-          <span>
-            Pergunta {current + 1} de {total}
-          </span>
+        <h1>{game.questions[game.current].question}</h1>
 
-          <h1>{questions[current].question}</h1>
-
-          <div className="list">
-            {questions[current].options.map((item, key) => (
-              <div
-                id={`option_${key + 1}`}
-                key={key}
-                className="item"
-                onClick={handleQuestion}
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-
-          <div className="box-buttons">
-            {current + 1 < questions.length ? (
-              <button onClick={handleNext} className={show}>
-                Continuar
-              </button>
-            ) : (
-              <button onClick={() => changeMode("SCORE")}>Finalizar</button>
-            )}
-          </div>
+        <div className="list">
+          {game.questions[game.current].options.map((item, key) => (
+            <div
+              id={`option_${key + 1}`}
+              key={key}
+              className="item"
+              onClick={game.handleQuestion}
+            >
+              {item}
+            </div>
+          ))}
         </div>
-      )}
+
+        <div className="box-buttons">
+          {game.current + 1 < game.questions.length ? (
+            <button onClick={game.nextQuestion} className={game.show}>
+              Continuar
+            </button>
+          ) : (
+            <button onClick={() => game.changeMode("SCORE")}>Finalizar</button>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

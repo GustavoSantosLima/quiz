@@ -1,59 +1,21 @@
-import { useState } from "react";
 import Home from "./components/Home";
 import Score from "./components/Score";
 import Questions from "./components/Questions";
 import Categories from "./components/Categories";
-import { GameContext } from "./contexts/GameContext";
+import { useGame } from "./Hooks/useGame";
 
 function App() {
-  const [total, setTotal] = useState(0);
-  const [score, setScore] = useState(0);
-  const [page, setPage] = useState("HOME");
-  const [category, setCategory] = useState(null);
-
-  const changeMode = mode => {
-    setPage(mode);
-  };
-
-  const changeScore = number => {
-    setScore(score + number);
-  };
-
-  const changeTotal = number => {
-    setTotal(number);
-  };
-
-  const changeCategory = category => {
-    setCategory(category);
-    setPage("QUESTIONS");
-  };
-
-  const restart = () => {
-    setScore(0);
-    setTotal(0);
-    setPage("CATEGORY");
-    setCategory(null);
-  };
+  const { page } = useGame();
 
   return (
-    <GameContext.Provider
-      value={{
-        page,
-        score,
-        total,
-        restart,
-        category,
-        changeMode,
-        changeTotal,
-        changeScore,
-        changeCategory
-      }}
-    >
+    <div className="app">
+      <h1>Quiz de Programação</h1>
+
       {page === "HOME" && <Home />}
       {page === "CATEGORY" && <Categories />}
       {page === "QUESTIONS" && <Questions />}
       {page === "SCORE" && <Score />}
-    </GameContext.Provider>
+    </div>
   );
 }
 

@@ -3,7 +3,7 @@
   --primary: #242424;
   --secondary: #9743ff;
   --success: #14ab14;
-  --incorrect: #eb2e2e;
+  --error: #eb2e2e;
   --bg-question: #2f0563;
   --font-size: 18px;
 }
@@ -86,15 +86,15 @@ button:hover {
   background-color: var(--success);
 }
 
-.box-questions > .list > .item.incorrect {
-  background-color: var(--incorrect);
+.box-questions > .list > .item.error {
+  background-color: var(--error);
 }
 
 .box-questions > .list > .item:hover {
   opacity: 0.7;
 }
 
-.box-questions > .list > .item.incorrect:hover,
+.box-questions > .list > .item.error:hover,
 .box-questions > .list > .item.success:hover {
   opacity: 1;
 }

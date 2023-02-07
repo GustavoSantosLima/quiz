@@ -1,19 +1,16 @@
-import { useContext } from "react";
-import { GameContext } from "../contexts/GameContext";
+import { useGame } from "../Hooks/useGame";
 
 const Score = () => {
-  const { score, total, restart } = useContext(GameContext);
+  const { score, questions, restart } = useGame();
+
   return (
-    <div className="app">
-      <div className="box-title">
-        <h1>Quiz de Programação</h1>
-        <h2>Parabêns você chegou ao final</h2>
-      </div>
+    <div className="score">
+      <h2>Parabêns você chegou ao final</h2>
 
       <div className="box-score">
         <span className="text-info">Sua pontuação foi: {score}</span>
         <span className="text-info">
-          Você acertou {score} de {total} perguntas.
+          Você acertou {score} de {questions.length} perguntas.
         </span>
       </div>
 

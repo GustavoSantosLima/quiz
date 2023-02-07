@@ -1,20 +1,12 @@
-import { useContext } from "react";
-import { GameContext } from "../contexts/GameContext";
+import { useGame } from "../Hooks/useGame";
 
 const Home = () => {
-  const { changeMode } = useContext(GameContext);
+  const { changeMode } = useGame();
 
   return (
-    <div className="app">
-      <div className="box-title">
-        <h1>Quiz de Programação</h1>
-        <h2>Sejam bem-vindos</h2>
-      </div>
-
-      <span className="text-info">
-        Clique em um dos botões abaixo para começar
-      </span>
-
+    <div className="home">
+      <h2>Sejam bem-vindos</h2>
+      <p className="text-info">Clique no botão abaixo para começar</p>
       <div className="box-buttons">
         <button onClick={() => changeMode("CATEGORY")}>Iniciar</button>
       </div>
