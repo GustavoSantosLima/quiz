@@ -1,4 +1,9 @@
-const Home = ({ onChangeMode }) => {
+import { useContext } from "react";
+import { GameContext } from "../contexts/GameContext";
+
+const Home = () => {
+  const { changeMode } = useContext(GameContext);
+
   return (
     <div className="app">
       <div className="box-title">
@@ -11,7 +16,7 @@ const Home = ({ onChangeMode }) => {
       </span>
 
       <div className="box-buttons">
-        <button onClick={() => onChangeMode(2)}>Iniciar</button>
+        <button onClick={() => changeMode("CATEGORY")}>Iniciar</button>
       </div>
     </div>
   );

@@ -1,4 +1,9 @@
-const Home = ({ onChangeCategory }) => {
+import { useContext } from "react";
+import { GameContext } from "../contexts/GameContext";
+
+const Home = () => {
+  const { changeCategory } = useContext(GameContext);
+
   return (
     <div className="app">
       <div className="box-title">
@@ -11,11 +16,9 @@ const Home = ({ onChangeCategory }) => {
       </span>
 
       <div className="box-categories">
-        <button onClick={() => onChangeCategory("HTML")}>HTML</button>
-        <button onClick={() => onChangeCategory("CSS")}>CSS</button>
-        <button onClick={() => onChangeCategory("JAVASCRIPT")}>
-          JAVASCRIPT
-        </button>
+        <button onClick={() => changeCategory("HTML")}>HTML</button>
+        <button onClick={() => changeCategory("CSS")}>CSS</button>
+        <button onClick={() => changeCategory("JAVASCRIPT")}>JAVASCRIPT</button>
       </div>
     </div>
   );

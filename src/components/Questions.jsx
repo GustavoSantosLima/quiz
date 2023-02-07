@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { GameContext } from "../contexts/GameContext";
 import data from "../data/questions";
 
-const Home = ({ category, onChangeScore, onChangeMode }) => {
+const Home = () => {
+  const { category, total, changeScore, changeMode, changeTotal } =
+    useContext(GameContext);
   const [show, setShow] = useState("hidden");
   const [current, setCurrent] = useState(0);
   const [questions, setQuestions] = useState([]);
@@ -9,6 +12,7 @@ const Home = ({ category, onChangeScore, onChangeMode }) => {
   useEffect(() => {
     const [list] = data.filter(i => i.category === category);
     setQuestions(list.questions);
+    changeTotal(list.questions.length);
   }, []);
 
   const handleQuestion = ({ target }) => {
@@ -19,10 +23,10 @@ const Home = ({ category, onChangeScore, onChangeMode }) => {
 
       if (target.textContent === questions[current].answer) {
         element.classList.add("success");
-        onChangeScore(1);
+        changeScore(1);
       } else {
         element.classList.add("incorrect");
-        onChangeScore(0);
+        changeScore(0);
       }
     }
   };
@@ -49,7 +53,7 @@ const Home = ({ category, onChangeScore, onChangeMode }) => {
       {questions.length > 0 && (
         <div className="box-questions">
           <span>
-            Pergunta {current + 1} de {questions.length}
+            Pergunta {current + 1} de {total}
           </span>
 
           <h1>{questions[current].question}</h1>
@@ -73,7 +77,7 @@ const Home = ({ category, onChangeScore, onChangeMode }) => {
                 Continuar
               </button>
             ) : (
-              <button onClick={() => onChangeMode(4)}>Finalizar</button>
+              <button onClick={() => changeMode("SCORE")}>Finalizar</button>
             )}
           </div>
         </div>

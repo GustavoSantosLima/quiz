@@ -1,4 +1,8 @@
-const Score = ({ score, restartGame }) => {
+import { useContext } from "react";
+import { GameContext } from "../contexts/GameContext";
+
+const Score = () => {
+  const { score, total, restart } = useContext(GameContext);
   return (
     <div className="app">
       <div className="box-title">
@@ -8,11 +12,13 @@ const Score = ({ score, restartGame }) => {
 
       <div className="box-score">
         <span className="text-info">Sua pontuação foi: {score}</span>
-        <span className="text-info">Você acertou {score} de 3 perguntas.</span>
+        <span className="text-info">
+          Você acertou {score} de {total} perguntas.
+        </span>
       </div>
 
       <div className="box-buttons">
-        <button onClick={restartGame}>Jogar novamente</button>
+        <button onClick={restart}>Jogar novamente</button>
       </div>
     </div>
   );
