@@ -73,7 +73,7 @@ button:hover {
   background-color: var(--secondary);
 }
 
-.box-questions > .list > .item {
+.box-questions > .list > .alternative {
   padding: 1rem;
   cursor: pointer;
   margin-bottom: 20px;
@@ -82,20 +82,20 @@ button:hover {
   transition: all 0.25s;
 }
 
-.box-questions > .list > .item.success {
+.box-questions > .list > .alternative.success {
   background-color: var(--success);
 }
 
-.box-questions > .list > .item.error {
+.box-questions > .list > .alternative.error {
   background-color: var(--error);
 }
 
-.box-questions > .list > .item:hover {
+.box-questions > .list > .alternative:hover {
   opacity: 0.7;
 }
 
-.box-questions > .list > .item.error:hover,
-.box-questions > .list > .item.success:hover {
+.box-questions > .list > .alternative.error:hover,
+.box-questions > .list > .alternative.success:hover {
   opacity: 1;
 }
 

@@ -1,5 +1,5 @@
-import React, { createContext, useEffect, useState } from "react";
-import data from "../data/questions";
+import React, { createContext, useState } from "react";
+import data from "../data/db.json";
 
 export const GameContext = createContext({});
 
@@ -8,76 +8,71 @@ export const GameProvider = ({ children }) => {
   const [page, setPage] = useState("HOME");
   const [category, setCategory] = useState(null);
   const [questions, setQuestions] = useState([]);
-
-  //Refatorar
-  const [show, setShow] = useState("hidden");
-  const [current, setCurrent] = useState(0);
-
-  const changeMode = mode => {
-    setPage(mode);
-  };
-
-  const handleQuestion = ({ target }) => {
-    if (show === "hidden") {
-      const element = document.getElementById(target.id);
-
-      setShow("");
-
-      if (target.textContent === questions[current].answer) {
-        element.classList.add("success");
-        changeScore(1);
-      } else {
-        element.classList.add("error");
-        changeScore(0);
-      }
-    }
-  };
-
-  const nextQuestion = () => {
-    if (document.querySelector(".success")) {
-      document.querySelector(".success").classList.remove("success");
-    }
-
-    if (document.querySelector(".error")) {
-      document.querySelector(".error").classList.remove("error");
-    }
-
-    setCurrent(current + 1);
-    setShow("hidden");
-  };
-
-  const changeScore = number => {
-    setScore(score + number);
-  };
-
-  const changeCategory = category => {
-    setCategory(category);
-    setPage("QUESTIONS");
-    const [list] = data.filter(i => i.category === category);
-    setQuestions(list.questions.sort(() => Math.random() - 0.5));
-  };
+  const [indexQuestion, setIndexQuestion] = useState(0);
+  const [selectedQuestion, setSelectedQuestion] = useState(false);
 
   const restart = () => {
     setScore(0);
     setPage("CATEGORY");
     setCategory(null);
+    setQuestions([]);
+    setIndexQuestion(0);
+    setSelectedQuestion(false);
+  };
+
+  const changeMode = mode => {
+    setPage(mode);
+  };
+
+  const changeSelected = ({ target }) => {
+    if (!selectedQuestion) {
+      setSelectedQuestion(target.textContent);
+
+      if (target.textContent === questions[indexQuestion].answer) {
+        setScore(score + 1);
+      }
+    }
+  };
+
+  const nextQuestion = () => {
+    setSelectedQuestion(false);
+    setIndexQuestion(indexQuestion + 1);
+  };
+
+  const changeCategory = category => {
+    setPage("QUESTIONS");
+    setCategory(category);
+
+    const questionsRandom = shuffle(
+      data.questions.filter(i => i.category === category)
+    );
+
+    setQuestions(
+      questionsRandom.map(item => ({
+        ...item,
+        alternatives: shuffle(item.alternatives)
+      }))
+    );
+  };
+
+  const shuffle = list => {
+    return list.sort(() => Math.random() - 0.5);
   };
 
   return (
     <GameContext.Provider
       value={{
         page,
-        show,
         score,
         restart,
-        current,
         category,
         questions,
         changeMode,
-        changeScore,
         nextQuestion,
-        handleQuestion,
-        changeCategory
+        indexQuestion,
+        changeSelected,
+        changeCategory,
+        selectedQuestion
       }}
     >
       {children}

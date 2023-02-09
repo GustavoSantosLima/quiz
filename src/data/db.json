@@ -1,0 +1,159 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "title": "Qual é a tag HTML usada para criar um hiperlink para outra página ou para um endereço de email?",
+      "answer": "<a>",
+      "category": "HTML",
+      "alternatives": ["<link>", "<a>", "<hyperlink>", "<url>"]
+    },
+    {
+      "id": 2,
+      "title": "Como você pode especificar o tipo de documento HTML sendo usado em uma página?",
+      "answer": "<doctype html>",
+      "category": "HTML",
+      "alternatives": [
+        "<doctype html>",
+        "<document type=\"html\">",
+        "<html type=\"doctype\">",
+        "<type doctype=\"html\">"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Qual é a tag HTML usada para criar um cabeçalho de nível 1 na página?",
+      "answer": "<h1>",
+      "category": "HTML",
+      "alternatives": ["<header1>", "<head1>", "<h1>", "<heading1>"]
+    },
+    {
+      "id": 4,
+      "title": "Como você pode adicionar uma imagem à sua página HTML?",
+      "answer": "<img src=\"image.jpg\">",
+      "category": "HTML",
+      "alternatives": [
+        "<img src=\"image.jpg\">",
+        "<picture src=\"image.jpg\">",
+        "<image src=\"image.jpg\">",
+        "<img source=\"image.jpg\">"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Qual é a tag HTML usada para criar uma lista não ordenada?",
+      "answer": "<ul>",
+      "category": "HTML",
+      "alternatives": ["<ul>", "<dl>", "<ol>", "<li>"]
+    },
+    {
+      "id": 6,
+      "title": "Qual propriedade CSS é usada para mudar a cor de fundo de um elemento?",
+      "answer": "background-color",
+      "category": "CSS",
+      "alternatives": [
+        "background-color",
+        "color-background",
+        "color",
+        "background-fill"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Como você pode centralizar um elemento horizontalmente na página?",
+      "answer": "margin: 0 auto;",
+      "category": "CSS",
+      "alternatives": [
+        "text-center",
+        "center-text",
+        "margin: 0 auto;",
+        "align-center"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Qual é o seletor CSS que seleciona todos os elementos filhos diretos de um elemento pai específico?",
+      "answer": ">",
+      "category": "CSS",
+      "alternatives": [">", "+", "~", "*"]
+    },
+    {
+      "id": 9,
+      "title": "Como você pode especificar várias regras CSS para um mesmo seletor?",
+      "answer": "Separar cada regra com um ponto e vírgula",
+      "category": "CSS",
+      "alternatives": [
+        "Separar cada regra com um ponto e vírgula",
+        "Separar cada regra com uma vírgula",
+        "Escrever cada regra em uma linha diferente",
+        "Envolver todas as regras em colchetes"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Como você pode tornar um elemento invisível na página, mas mantê-lo ocupando espaço na página?",
+      "answer": "visibility: hidden;",
+      "category": "CSS",
+      "alternatives": [
+        "visibility: hidden;",
+        "display: none;",
+        "opacity: 0;",
+        "visibility: collapse;"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Como você pode exibir uma mensagem de alerta na tela usando JavaScript?",
+      "answer": "alert(\"Mensagem\");",
+      "category": "JAVASCRIPT",
+      "alternatives": [
+        "notify(\"Mensagem\");",
+        "alert(\"Mensagem\");",
+        "prompt(\"Mensagem\");",
+        "msg(\"Mensagem\");"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Como você pode armazenar uma string em uma variável em JavaScript?",
+      "answer": "var name = \"string\";",
+      "category": "JAVASCRIPT",
+      "alternatives": [
+        "var name = \"string\";",
+        "name = \"string\";",
+        "variable name = \"string\";",
+        "string name = \"variable\";"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Como você pode adicionar dois números inteiros usando JavaScript?",
+      "answer": "a + b;",
+      "category": "JAVASCRIPT",
+      "alternatives": ["sum(a, b);", "total(a, b);", "add(a, b);", "a + b;"]
+    },
+    {
+      "id": 14,
+      "title": "Qual é a sintaxe para criar uma função em JavaScript?",
+      "answer": "function myFunction() {}",
+      "category": "JAVASCRIPT",
+      "alternatives": [
+        "myFunction() {}",
+        "function myFunction() {}",
+        "function = myFunction() {}",
+        "myFunction = function() {}"
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Como você pode obter o valor de um elemento de input de um formulário na página usando JavaScript?",
+      "answer": "element.value;",
+      "category": "JAVASCRIPT",
+      "alternatives": [
+        "inputValue(element);",
+        "getInputValue(element);",
+        "element.value;",
+        "value(element);"
+      ]
+    }
+  ]
+}
