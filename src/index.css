@@ -1,11 +1,12 @@
 :root {
+  --font-size: 18px;
   --color: #ffffffde;
   --primary: #242424;
-  --secondary: #9743ff;
+  --secondary: rgb(6 154 216);
   --success: #14ab14;
   --error: #eb2e2e;
-  --bg-question: #2f0563;
-  --font-size: 18px;
+  --bg-app: #121212;
+  --bg-alternatives: #2f0563;
 }
 
 body {
@@ -20,12 +21,19 @@ body {
 }
 
 .app {
+  width: 80vw;
+  max-width: 600px;
+  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin-top: 2rem;
   text-align: center;
+  border-radius: 15px;
+  border: 1px solid rgb(74, 74, 74);
+  background-color: var(--bg-app);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 h1 {
@@ -44,19 +52,19 @@ h1 {
 .box-categories {
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: space-evenly;
-  gap: 1rem;
 }
 
 button {
+  width: 75%;
   border: none;
+  margin: 10px;
   cursor: pointer;
-  margin: 1.5rem 0;
   color: var(--color);
-  padding: 0.5rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 50px;
   font-size: var(--font-size);
-  border: 2px solid var(--color);
   background-color: var(--secondary);
 }
 
@@ -70,7 +78,7 @@ button:hover {
   padding: 2rem;
   text-align: center;
   border-radius: 15px;
-  background-color: var(--secondary);
+  /* background-color: var(--secondary); */
 }
 
 .box-questions > .list > .alternative {
@@ -78,7 +86,7 @@ button:hover {
   cursor: pointer;
   margin-bottom: 20px;
   border-radius: 10px;
-  background-color: var(--bg-question);
+  background-color: var(--secondary);
   transition: all 0.25s;
 }
 
@@ -97,6 +105,13 @@ button:hover {
 .box-questions > .list > .alternative.error:hover,
 .box-questions > .list > .alternative.success:hover {
   opacity: 1;
+}
+
+.box-questions button {
+  width: auto;
+  border: 2px solid var(--color);
+  background-color: transparent;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .box-score {

@@ -1,7 +1,7 @@
 import { useGame } from "../Hooks/useGame";
 
 const Score = () => {
-  const { score, questions, restart } = useGame();
+  const { score, category, questions, restart } = useGame();
 
   return (
     <div className="score">
@@ -12,6 +12,7 @@ const Score = () => {
         <span className="text-info">
           Você acertou {score} de {questions.length} perguntas.
         </span>
+        <span className="text-info">Categoria: {category}</span>
       </div>
 
       <div className="box-buttons">

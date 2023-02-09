@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import data from "../data/db.json";
 
 export const GameContext = createContext({});
@@ -8,8 +8,13 @@ export const GameProvider = ({ children }) => {
   const [page, setPage] = useState("HOME");
   const [category, setCategory] = useState(null);
   const [questions, setQuestions] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [indexQuestion, setIndexQuestion] = useState(0);
   const [selectedQuestion, setSelectedQuestion] = useState(false);
+
+  useEffect(() => {
+    setCategories([...new Set(data.questions.map(item => item.category))]);
+  }, []);
 
   const restart = () => {
     setScore(0);
@@ -67,6 +72,7 @@ export const GameProvider = ({ children }) => {
         restart,
         category,
         questions,
+        categories,
         changeMode,
         nextQuestion,
         indexQuestion,
