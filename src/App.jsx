@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Quiz de Programação</h1>
+      <h1>Quiz de Perguntas</h1>
 
       {page === "HOME" && <Home />}
       {page === "CATEGORY" && <Categories />}

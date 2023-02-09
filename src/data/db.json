@@ -154,6 +154,66 @@
         "element.value;",
         "value(element);"
       ]
+    },
+    {
+      "id": 16,
+      "title": "O que é o ReactJS?",
+      "answer": "Um framework para desenvolvimento de aplicativos web",
+      "category": "REACTJS",
+      "alternatives": [
+        "Uma biblioteca de JavaScript para desenvolvimento de aplicativos móveis",
+        "Uma biblioteca de JavaScript para criação de interfaces gráficas",
+        "Uma linguagem de programação baseada em JavaScript",
+        "Um framework para desenvolvimento de aplicativos web"
+      ]
+    },
+    {
+      "id": 17,
+      "title": "O que são componentes no ReactJS?",
+      "answer": "Funções que retornam elementos HTML",
+      "category": "REACTJS",
+      "alternatives": [
+        "Elementos HTML simples",
+        "Funções que retornam elementos HTML",
+        "Classes que representam elementos HTML",
+        "Elementos HTML complexos"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Como o ReactJS gerencia o estado de uma aplicação?",
+      "answer": "Usando o contexto do React",
+      "category": "REACTJS",
+      "alternatives": [
+        "Usando o local storage do navegador",
+        "Usando variáveis globais",
+        "Usando o Redux",
+        "Usando o contexto do React"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Qual é a vantagem do uso do ReactJS para criação de aplicativos web?",
+      "answer": "Todas as alternativas são verdadeiras",
+      "category": "REACTJS",
+      "alternatives": [
+        "Permite a criação de aplicativos web de alta performance",
+        "Permite a criação de aplicativos web com interações ricas",
+        "Permite a criação de aplicativos web com facilidade de manutenção",
+        "Todas as alternativas são verdadeiras"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Como é feito o renderização condicional no ReactJS?",
+      "answer": "Usando o operador ternário",
+      "category": "REACTJS",
+      "alternatives": [
+        "Usando if/else",
+        "Usando switch/case",
+        "Usando o operador ternário",
+        "Usando o método ternário"
+      ]
     }
   ]
 }

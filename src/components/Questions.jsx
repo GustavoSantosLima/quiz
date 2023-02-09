@@ -17,11 +17,11 @@ const Home = () => {
     <div className="question">
       {game.questions.length > 0 && (
         <div className="box-questions">
-          <span>
+          <p>
             Pergunta {game.indexQuestion + 1} de {game.questions.length}
-          </span>
+          </p>
 
-          <h1>{game.questions[game.indexQuestion].title}</h1>
+          <h2>{game.questions[game.indexQuestion].title}</h2>
 
           <div className="list">
             {game.questions[game.indexQuestion].alternatives.map(
