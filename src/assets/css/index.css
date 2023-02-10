@@ -50,16 +50,16 @@ h1 {
 }
 
 .box-categories {
+  gap: 10px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 button {
-  width: 75%;
+  width: calc(50% - 10px);
   border: none;
-  margin: 10px;
   cursor: pointer;
   color: var(--color);
   padding: 0.75rem 1.5rem;
