@@ -123,3 +123,7 @@ button:hover {
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
+
+.score .box-buttons > button {
+  width: auto;
+}

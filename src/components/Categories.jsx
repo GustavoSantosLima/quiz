@@ -1,7 +1,7 @@
 import { useGame } from "../Hooks/useGame";
 
 const Home = () => {
-  const { categories, changeCategory } = useGame();
+  const { game, dispatch } = useGame();
 
   return (
     <div className="category">
@@ -10,8 +10,13 @@ const Home = () => {
         As perguntas serão referentes a categoria escolhida
       </p>
       <div className="box-categories">
-        {categories.map((category, key) => (
-          <button key={key} onClick={() => changeCategory(category)}>
+        {game.categories.map((category, key) => (
+          <button
+            key={key}
+            onClick={() =>
+              dispatch({ type: "SELECT_CATEGORY", payload: category })
+            }
+          >
             {category}
           </button>
         ))}

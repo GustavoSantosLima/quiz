@@ -5,16 +5,16 @@ import Categories from "./components/Categories";
 import { useGame } from "./Hooks/useGame";
 
 function App() {
-  const { page } = useGame();
+  const { game } = useGame();
 
   return (
     <div className="app">
       <h1>Quiz de Perguntas</h1>
 
-      {page === "HOME" && <Home />}
-      {page === "CATEGORY" && <Categories />}
-      {page === "QUESTIONS" && <Questions />}
-      {page === "SCORE" && <Score />}
+      {game.page === "HOME" && <Home />}
+      {game.page === "CATEGORY" && <Categories />}
+      {game.page === "QUESTIONS" && <Questions />}
+      {game.page === "SCORE" && <Score />}
     </div>
   );
 }

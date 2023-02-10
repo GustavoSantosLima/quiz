@@ -1,7 +1,7 @@
 import { useGame } from "../Hooks/useGame";
 
 const Home = () => {
-  const game = useGame();
+  const { game, dispatch } = useGame();
 
   const checkCorrect = text => {
     if (game.selectedQuestion === text) {
@@ -28,7 +28,9 @@ const Home = () => {
               (item, key) => (
                 <div
                   key={key}
-                  onClick={game.changeSelected}
+                  onClick={() =>
+                    dispatch({ type: "SELECT_ALTERNATIVE", payload: item })
+                  }
                   className={checkCorrect(item)}
                 >
                   {item}
@@ -40,13 +42,13 @@ const Home = () => {
           <div className="box-buttons">
             {game.indexQuestion + 1 < game.questions.length ? (
               <button
-                onClick={game.nextQuestion}
+                onClick={() => dispatch({ type: "NEXT_QUESTION" })}
                 className={game.selectedQuestion ? "" : "hidden"}
               >
                 Continuar
               </button>
             ) : (
-              <button onClick={() => game.changeMode("SCORE")}>
+              <button onClick={() => dispatch({ type: "GAME_END" })}>
                 Finalizar
               </button>
             )}

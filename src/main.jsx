@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { GameProvider } from "./contexts/GameProvider";
+import { GameContextProvider } from "./contexts/GameContextProvider";
 
 import "./assets/css/index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <GameProvider>
+    <GameContextProvider>
       <App />
-    </GameProvider>
+    </GameContextProvider>
   </React.StrictMode>
 );
